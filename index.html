@@ -1,144 +1,157 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="$PUTYA - Utya's best friend. Half pepe, half duck, 100% Solana."
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Срочное поздравление</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
     />
-    <title>$PUTYA | Born on Solana</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="$PUTYA home">
-        <img src="assets/putya.png" alt="$PUTYA character" />
-        <span>$PUTYA</span>
-      </a>
+    <main>
+      <section class="hero" aria-label="Начало поздравления">
+        <img
+          class="hero__image"
+          src="assets/birthday-stop.png"
+          alt="Парень в костюме и красной кепке смотрит на часы"
+        />
 
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#origin">origin</a>
-        <a href="#meme-desk">meme desk</a>
-        <a href="#lore">lore</a>
-        <a class="twitter-button" href="https://x.com/putya_sol" target="_blank" rel="noreferrer">X</a>
-        <button class="contract-button" type="button" data-copy="CA_COMING_SOON">
-          <span>CA:</span>
-          <strong>COMING SOON</strong>
+        <div class="intro-text" aria-live="polite">
+          <div class="intro-text__line">
+            <p id="typedText"></p>
+            <span class="typing-cursor" aria-hidden="true"></span>
+          </div>
+          <div class="hero__actions" id="heroActions">
+            <button class="main-button" id="showGreeting" type="button" disabled>
+              Увидеть поздравление
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="passcode-screen" id="passcodeScreen" aria-label="Экран пароля" hidden>
+        <div class="passcode">
+          <h1>введи пароль</h1>
+          <div class="passcode__dots" aria-label="Введенные цифры">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="keypad" aria-label="Цифровая клавиатура">
+            <button type="button" data-digit="1"><span>1</span></button>
+            <button type="button" data-digit="2"><span>2</span><small>а б в г<br />a b c</small></button>
+            <button type="button" data-digit="3"><span>3</span><small>д е ж з<br />d e f</small></button>
+            <button type="button" data-digit="4"><span>4</span><small>и й к л<br />g h i</small></button>
+            <button type="button" data-digit="5"><span>5</span><small>м н о п<br />j k l</small></button>
+            <button type="button" data-digit="6"><span>6</span><small>р с т у<br />m n o</small></button>
+            <button type="button" data-digit="7"><span>7</span><small>ф х ц ч<br />p q r s</small></button>
+            <button type="button" data-digit="8"><span>8</span><small>ш щ ъ ы<br />t u v</small></button>
+            <button type="button" data-digit="9"><span>9</span><small>ь э ю я<br />w x y z</small></button>
+            <button class="keypad__zero" type="button" data-digit="0"><span>0</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="video-screen" id="videoScreen" aria-label="Видео" hidden>
+        <video id="birthdayVideo" class="birthday-video" playsinline preload="auto">
+          <source src="assets/birthday-video.mp4" type="video/mp4" />
+        </video>
+        <button class="sound-start" id="soundStart" type="button" hidden>включить звук</button>
+        <button class="scroll-cue" id="scrollCue" type="button" aria-label="Прокрутить вниз" hidden>
+          <span></span>
         </button>
-      </nav>
-    </header>
+      </section>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="sky" aria-hidden="true">
-          <span class="cloud cloud-one"></span>
-          <span class="cloud cloud-two"></span>
-          <span class="cloud cloud-three"></span>
-        </div>
+      <section class="after-video" id="afterVideo" aria-label="Поздравление" hidden>
+        <div class="birthday-sections">
+          <div class="birthday-land">
+            <figure class="birthday-land__photo">
+              <img
+                src="assets/first-greeting.png"
+                alt="Парень с букетом и надписью Happy Bday"
+              />
+            </figure>
+            <div class="birthday-land__copy">
+              <p class="birthday-land__kicker">первая официальная открытка</p>
+              <h1>Зай, с днем рождения</h1>
+              <p>
+                Я тебя очень сильно люблю. Желаю щастя, здоровля. Ты самая лучшая
+                девушка на свете. 6 месяцев ты делаешь меня самым счастливым
+                человеком. Теперь тебе 18, и ты сможешь покупать корону экстра
+                хавзпвхп. Целую, коть.
+              </p>
+            </div>
+          </div>
 
-        <div class="hero-copy">
-          <p class="eyebrow">Born on Solana</p>
-          <h1 id="hero-title">
-            <span>$PUTYA</span>
-            Utya's best friend
-          </h1>
-          <p class="hero-line">half pepe, half duck, 100% pond energy.</p>
-          <div class="hero-actions">
-            <a class="primary-action" href="#lore">read the lore</a>
-            <a class="secondary-action" href="#pond">join the pond</a>
+          <div class="birthday-land birthday-land--reverse">
+            <figure class="birthday-land__photo">
+              <img
+                src="assets/coolest-girl.jpeg"
+                alt="Девушка ночью держит бутылку напитка"
+              />
+            </figure>
+            <div class="birthday-land__copy">
+              <p class="birthday-land__kicker">факт номер один</p>
+              <h1>Ты самая крутая девченка</h1>
+              <p>которую я когда либо видел.</p>
+            </div>
+          </div>
+
+          <div class="birthday-land">
+            <figure class="birthday-land__photo">
+              <img
+                src="assets/happy-baby.png"
+                alt="Девушка с праздничными шариками и тортом"
+              />
+            </figure>
+            <div class="birthday-land__copy">
+              <p class="birthday-land__kicker">факт номер два</p>
+              <h1>Ты самая жизнерадосная</h1>
+              <p>и веселая малышка.</p>
+            </div>
+          </div>
+
+          <div class="birthday-land birthday-land--reverse">
+            <figure class="birthday-land__photo">
+              <img
+                src="assets/jeans-love.png"
+                alt="Девушка среди множества джинсов"
+              />
+            </figure>
+            <div class="birthday-land__copy">
+              <p class="birthday-land__kicker">важное наблюдение</p>
+              <h1>Твоя любовь к джинсам</h1>
+              <p>это афигенно ХАХВЫАХ.</p>
+            </div>
+          </div>
+
+          <div class="birthday-land">
+            <figure class="birthday-land__photo">
+              <img
+                src="assets/brawl-player.png"
+                alt="Девушка на фоне меню Brawl Stars"
+              />
+            </figure>
+            <div class="birthday-land__copy">
+              <p class="birthday-land__kicker">легенда арены</p>
+              <h1>Самый сильный игрок</h1>
+              <p>в бравл старсике.</p>
+            </div>
           </div>
         </div>
-
-        <div class="pond-stage" id="pond" aria-label="$PUTYA floating in a Solana pond">
-          <img class="pond-scene" src="assets/putya-pond-scene.png" alt="$PUTYA floating in a blue pond" />
-        </div>
-      </section>
-
-      <section class="origin" id="origin" aria-labelledby="origin-title">
-        <div class="origin-text">
-          <h2 id="origin-title">Lonely pond, new chain, same vibes.</h2>
-          <p>
-            Utya was lonely at TON's pond, so she made a friend. Half pepe, half duck,
-            100% Solana.
-          </p>
-          <p>
-            $PUTYA didn't migrate, he was born here. Floating in the same water,
-            different chain, same vibes.
-          </p>
-        </div>
-        <div class="chain-badges" aria-label="Two chains, one water">
-          <span>TON's pond</span>
-          <strong>same water</strong>
-          <span>Solana native</span>
-        </div>
-      </section>
-
-      <section class="meme-desk" id="meme-desk" aria-labelledby="meme-desk-title">
-        <div class="desk-heading">
-          <div>
-            <p class="section-kicker">meme desk</p>
-            <h2 id="meme-desk-title">Putya's field reports.</h2>
-          </div>
-          <p>
-            Dispatches from the pond: alley nights, mountain quests, chart miracles,
-            couch co-op, and the original Utya linkup.
-          </p>
-        </div>
-
-        <div class="desk-grid">
-          <figure class="meme-card">
-            <img src="assets/meme-rocket.png" alt="Utya and Putya flying through the clouds together" loading="lazy" />
-          </figure>
-          <figure class="meme-card">
-            <img src="assets/meme-pond.png" alt="Utya and Putya floating together in the pond" loading="lazy" />
-          </figure>
-          <figure class="meme-card">
-            <img src="assets/meme-couch.png" alt="Utya and Putya playing a couch game together" loading="lazy" />
-          </figure>
-          <figure class="meme-card">
-            <img src="assets/meme-chart.png" alt="Putya next to an upward green chart" loading="lazy" />
-          </figure>
-          <figure class="meme-card">
-            <img src="assets/meme-alley.png" alt="Putya standing in a dark alley at night" loading="lazy" />
-          </figure>
-          <figure class="meme-card">
-            <img src="assets/meme-mountains.png" alt="Putya looking at a snowy mountain range" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section class="lore" id="lore" aria-labelledby="lore-title">
-        <div class="lore-heading">
-          <h2 id="lore-title">The Lore</h2>
-        </div>
-
-        <div class="lore-grid">
-          <article>
-            <span class="chapter">01</span>
-            <p>
-              The duck emoji has been on Telegram since 2015. Utya turned it into
-              a movement on TON, but every icon needs a counterpart.
-            </p>
-          </article>
-          <article>
-            <span class="chapter">02</span>
-            <p>
-              Putya is the friend who showed up uninvited: green, loud, and Solana
-              native.
-            </p>
-          </article>
-          <article>
-            <span class="chapter">03</span>
-            <p>
-              He doesn't compete with Utya, he completes her. Two chains, one water.
-            </p>
-          </article>
-        </div>
-
-        <a class="pond-cta" href="#top">join the pond</a>
       </section>
     </main>
+
+    <div class="stop-flash" id="stopFlash" aria-hidden="true">
+      <img src="assets/stop-transition.png" alt="" />
+    </div>
 
     <script src="script.js"></script>
   </body>
