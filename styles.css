@@ -393,14 +393,17 @@ button {
 }
 
 .after-video {
+  position: relative;
   display: grid;
   min-height: 100svh;
   place-items: center;
   padding: clamp(18px, 5vw, 72px);
   color: #f8f8f8;
   background:
-    radial-gradient(circle at 18% 82%, rgba(255, 91, 167, 0.22), transparent 24%),
-    linear-gradient(135deg, #080808, #171310 58%, #050505);
+    linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.76)),
+    url("assets/disco-party-bg.png") center top / cover fixed,
+    #050505;
+  overflow: hidden;
 }
 
 .after-video[hidden] {
@@ -408,6 +411,8 @@ button {
 }
 
 .birthday-sections {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: clamp(64px, 12vw, 150px);
   width: min(1180px, 100%);
@@ -415,7 +420,7 @@ button {
 
 .birthday-land {
   display: grid;
-  grid-template-columns: minmax(280px, 0.95fr) minmax(300px, 1fr);
+  grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1fr);
   gap: clamp(24px, 5vw, 70px);
   width: min(1180px, 100%);
   align-items: center;
@@ -433,6 +438,7 @@ button {
 
 .birthday-land__photo {
   margin: 0;
+  min-width: 0;
 }
 
 .birthday-land__photo img {
@@ -445,6 +451,7 @@ button {
 }
 
 .birthday-land__copy {
+  min-width: 0;
   max-width: 620px;
 }
 
@@ -460,10 +467,13 @@ button {
 .birthday-land h1 {
   margin: 0;
   color: #fff;
-  font-size: clamp(2.7rem, 8vw, 6.9rem);
+  max-width: 100%;
+  font-size: clamp(2.35rem, 6.2vw, 5.6rem);
   font-weight: 700;
-  line-height: 0.95;
+  line-height: 1;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .birthday-land p:not(.birthday-land__kicker) {
@@ -474,9 +484,56 @@ button {
   line-height: 1.42;
 }
 
+.birthday-gallery {
+  width: min(1180px, 100%);
+  overflow: hidden;
+  padding: clamp(24px, 5vw, 58px) 0 0;
+}
+
+.birthday-gallery h1 {
+  margin: 0 0 clamp(26px, 5vw, 48px);
+  color: #fff;
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.gallery-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  gap: clamp(14px, 2vw, 24px);
+  animation: galleryRun 34s linear infinite;
+}
+
+.gallery-track img {
+  width: clamp(210px, 28vw, 360px);
+  height: clamp(280px, 38vw, 480px);
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+}
+
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+@keyframes galleryRun {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - clamp(7px, 1vw, 12px)));
   }
 }
 
